@@ -82,4 +82,4 @@ release/   Artefatos de distribuição gerados localmente
 
 ## Licença
 
-Uma licença de distribuição ainda não foi definida neste repositório. Antes de redistribuir o código ou os instaladores publicamente, defina e inclua um arquivo `LICENSE` e confira as licenças das dependências e dos recursos empacotados.
+Uma licença de distribuição ainda não foi definida neste repositório.
