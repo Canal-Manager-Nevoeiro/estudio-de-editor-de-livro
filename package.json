@@ -1,0 +1,66 @@
+{
+  "name": "studio-editorial-desktop",
+  "private": true,
+  "version": "1.0.0",
+  "productName": "Studio Editorial",
+  "description": "Estúdio desktop local e offline para escrita e produção editorial de livros.",
+  "author": "Studio Editorial",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=127.0.0.1",
+    "build": "vite build",
+    "test": "node --test",
+    "preview": "vite preview --host=127.0.0.1",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "lint": "tsc --noEmit",
+    "desktop:dev": "node scripts/desktop-dev.cjs",
+    "desktop:build": "vite build",
+    "dist:win": "npm run build && electron-builder --win nsis",
+    "dist:portable": "npm run build && electron-builder --win portable",
+    "dist:all": "npm run build && electron-builder --win",
+    "check": "npm run lint && npm test && npm run build"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jszip": "^3.10.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "sql.js": "^1.14.2",
+    "vite": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/jszip": "^3.4.1",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.21",
+    "electron": "^44.7.2",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.studioeditorial.desktop",
+    "productName": "Studio Editorial",
+    "electronDist": "node_modules/electron/dist",
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "electron/**/*", "node_modules/sql.js/**/*", "package.json"],
+    "asar": true,
+    "win": { "icon": "assets/studio-editorial.ico", "target": ["nsis", "portable"], "artifactName": "Studio-Editorial-${version}-${arch}.${ext}" },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": { "artifactName": "Studio-Editorial-${version}-Portable.${ext}" }
+  }
+}

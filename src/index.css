@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-editorial-serif: 'Lora', Georgia, serif;
+    --font-display-serif: 'Cormorant Garamond', Garamond, serif;
+    --font-editorial-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: #0c0d0e;
+    color: #e4e4e7;
+    font-family: var(--font-editorial-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-editorial-serif {
+  font-family: var(--font-editorial-serif);
+}
+
+.font-display-serif {
+  font-family: var(--font-display-serif);
+}
+
+.font-editorial-sans {
+  font-family: var(--font-editorial-sans);
+}
+
+/* Ensure lining figures (full-height numbers) for chapter headings, titles, and numerals */
+h1, h2, h3, h4, h5, h6, .chapter-title, .chapter-heading, .lining-nums {
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+/* Custom sleek scrollbar for desktop app feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #121316;
+}
+::-webkit-scrollbar-thumb {
+  background: #272a30;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f424b;
+}
+
+/* Print simulation for book preview */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-page {
+    page-break-after: always;
+    break-after: page;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix Studio Editorial Desktop",
+  "description": "Sistema desktop offline de produção editorial completa para livros de ficção e técnicos: escrita estruturada, organizador de universo, diagramação paginada, estúdio de capas e exportação de PDF, EPUB e DOCX.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
